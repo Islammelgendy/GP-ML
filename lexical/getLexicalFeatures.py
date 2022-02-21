@@ -2,7 +2,7 @@ import spacy
 
 def get_lexical(text, emotions_list, words_list):
   """
-    Load data from path
+    Get the lexical features of an interview
     Arguments:
       text (str) : The transcript of the interview
       emotions_list (pd.dataframe) : A list containing the full emotion list
