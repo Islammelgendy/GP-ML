@@ -5,9 +5,23 @@ from voiceReport import voice_report_dict
 import math
 
 def hz_to_mel(hz):
-        return 550 * math.log(1 + hz/550, math.e)
+  """
+    Convert the frequency from Hertz to MEL
+    Arguments:
+      hz (int) : the frequency in Hertz
+    Return:
+      the frequency in MEL (int)
+  """
+  return 550 * math.log(1 + hz/550, math.e)
 
-def getProsodicFeatures(audio_path):
+def get_prosodic_features(audio_path):
+  """
+    Get the prosodic features of an interview
+    Arguments:
+      audio_path (str) : A path to the audio file
+    Return:
+      numpy array containing the full prosodic features
+  """
   snd = parselmouth.Sound(audio_path)
 
   duration = snd.get_total_duration()
@@ -55,7 +69,7 @@ def getProsodicFeatures(audio_path):
   precent_unvoiced = rep_dict['Fraction of locally unvoiced frames']
   num_voice_breaks = rep_dict['Number of voice breaks']
   precent_breaks = rep_dict['Degree of voice breaks']
-  txt_grid = call(intensity, "To TextGrid (silences)", -25, 0.1, 0.1, "silent", "sounding") # threshold, min_pause_dur
+  txt_grid = call(intensity, "To TextGrid (silences)", -25, 0.1, 0.1, "silent", "sounding")
   total = call(txt_grid, "Get number of intervals", 1)
   dur_pauses = 0
   avg_pause = 0
