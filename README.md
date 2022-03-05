@@ -36,3 +36,7 @@
 |Number|``NUM``|words related to number, e.g.,first, second, hundred, etc.|
 |Words count|``WC``||
 |Unique words count|``UWC``||
+
+|Facial Feature|Label|Example|
+|-|-|-|
+|Pose| ``pitch``<br/>``yaw``<br/>``roll``|![](https://miro.medium.com/max/691/1*U4ZQ8UjzouVMRo2Fgsz7UA.png)|
