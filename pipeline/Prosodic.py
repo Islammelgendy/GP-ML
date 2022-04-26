@@ -47,12 +47,12 @@ class Prosodic:
         self.diff_intensity_max_mean = (self.max_intensity - self.mean_intensity)
 
         self.format = self.snd.to_formant_burg()
-        self.f1mean = call(format, "Get mean", 1, 0, 0, "hertz")
-        self.f2mean = call(format, "Get mean", 2, 0, 0, "hertz")
-        self.f3mean = call(format, "Get mean", 3, 0, 0, "hertz")
-        self.f1std = call(format, "Get standard deviation", 1, 0, 0, "hertz")
-        self.f2std = call(format, "Get standard deviation", 2, 0, 0, "hertz")
-        self.f3std = call(format, "Get standard deviation", 3, 0, 0, "hertz")
+        self.f1mean = call(self.format, "Get mean", 1, 0, 0, "hertz")
+        self.f2mean = call(self.format, "Get mean", 2, 0, 0, "hertz")
+        self.f3mean = call(self.format, "Get mean", 3, 0, 0, "hertz")
+        self.f1std = call(self.format, "Get standard deviation", 1, 0, 0, "hertz")
+        self.f2std = call(self.format, "Get standard deviation", 2, 0, 0, "hertz")
+        self.f3std = call(self.format, "Get standard deviation", 3, 0, 0, "hertz")
         self.f2meanf1 = self.f2mean / self.f1mean
         self.f3meanf1 = self.f3mean / self.f1mean
         self.f2stdf1 = self.f2std / self.f1std

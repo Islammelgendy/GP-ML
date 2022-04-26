@@ -14,7 +14,7 @@ class Facial:
         return self.landmarks
 
 
-    def get_euclidean_distance(x, y):
+    def get_euclidean_distance(self, x, y):
         return math.sqrt((x[1] - x[0])**2 + (y[1] - y[0])**2)
 
     def get_yaw_angle(self, landmarks):

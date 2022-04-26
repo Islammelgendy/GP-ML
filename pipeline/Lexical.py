@@ -19,7 +19,7 @@ class Lexical:
                         'Fear', 'Joy', 'Sadness', 'Surprise', 'Trust', 'DET', 'VERB', 'ADV',
                         'ADP', 'CONJ', 'NEG', 'NUM', 'WC', 'UWC']
         self.features_dict = {key:0 for key in self.categories}
-        self.features_dict['Filler'] = self.text.count('%hesitation')
+        self.features_dict['Filler'] = text.count('%hesitation')
         self.text = text.replace('%hesitation', '')
         self.doc = nlp(self.text)
         for self.token in self.doc:

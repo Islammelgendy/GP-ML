@@ -9,9 +9,9 @@ def main():
     predictor_path = config['PREDICTOR_PATH']
     features = Features(apikey, url, emotion_path, predictor_path)
     # there should be a .wav (audio) and .avi (video) in that folder and you 
-    # should pass the path to the interview without and extension
+    # should pass the path to the interview without an extension
     # when you test you should download the video and save it to interview folder
-    feature = features.get_features('../examples/interview/P1')
+    feature = features.get_features('/home/m49di/GP-ML/example/interview/P1')
     print(feature)
 
 if __name__ == '__main__':
