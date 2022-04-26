@@ -8,7 +8,10 @@ def main():
     emotion_path = config['EMOTION_PATH']
     predictor_path = config['PREDICTOR_PATH']
     features = Features(apikey, url, emotion_path, predictor_path)
-    print(features)
+    # there should be a .wav (audio) and .avi (video) in that folder and you 
+    # should pass the path to the interview without and extension
+    feature = features.get_features('../examples/interview/P1')
+    print(feature)
 
 if __name__ == '__main__':
     main()
