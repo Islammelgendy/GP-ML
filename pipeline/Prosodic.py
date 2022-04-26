@@ -85,9 +85,9 @@ class Prosodic:
 
         self.avg_pause = self.dur_pauses / max(self.cnt_pauses, 1)
         self.features = np.array([self.duration, self.energy, self.power, self.min_pitch, self.max_pitch, self.mean_pitch, 
-                            self.pitch_std, self.diff_pitch_max_min, self.diff_pitch_max_mean, self.min_intensity,
-                            self.max_intensity, self.mean_intensity, self.intensity_std, self.diff_intensity_max_min,
-                            self.diff_intensity_max_mean, self.f1mean, self.f2mean, self.f3mean, self.f1std, self.f2std, self.f3std,
-                            self.f2meanf1, self.f3meanf1, self.f2stdf1, self.f3stdf1, self.jitter, self.shimmer, self.rap_jitter, self.precent_unvoiced,
-                            self.num_voice_breaks, self.precent_breaks, self.cnt_pauses, self.max_pause, self.avg_pause, self.dur_pauses])
+                                  self.pitch_std, self.diff_pitch_max_min, self.diff_pitch_max_mean, self.min_intensity,
+                                  self.max_intensity, self.mean_intensity, self.intensity_std, self.diff_intensity_max_min,
+                                  self.diff_intensity_max_mean, self.f1mean, self.f2mean, self.f3mean, self.f1std, self.f2std, self.f3std,
+                                  self.f2meanf1, self.f3meanf1, self.f2stdf1, self.f3stdf1, self.jitter, self.shimmer, self.rap_jitter, 
+                                  self.dur_pauses, self.avg_pause, self.max_pause, self.cnt_pauses])
         return self.features
