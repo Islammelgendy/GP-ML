@@ -1,6 +1,7 @@
 import pickle 
 from Features import Features
 from dotenv import dotenv_values
+import numpy as np 
 
 with open('models/scaler.pkl', 'rb') as f:
   scaler = pickle.load(f)
@@ -19,7 +20,11 @@ def main():
     # should pass the path to the interview without an extension
     # when you test you should download the video and save it to interview folder
     feature = features.get_features('/home/sloaka/Desktop/GP-ML/example/interview/P1')
-    scaled_features = scaler.fit(feature)
+    print(feature)
+    scaled_features =  scaler.transform(feature)
+
+    
+
     print(model.predict(scaled_features))
 
 
