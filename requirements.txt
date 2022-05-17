@@ -1,5 +1,6 @@
 decorator==4.4.2
 dlib==19.23.1
+fastapi==0.78.0
 ffmpeg==1.4
 ibm-cloud-sdk-core==3.15.1
 ibm-watson==6.0.0
