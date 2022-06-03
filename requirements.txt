@@ -12,6 +12,7 @@ numpy==1.22.3
 opencv-python==4.5.5.64
 openpyxl==3.0.9
 pandas==1.4.2
+pika==1.2.1
 Pillow==9.1.0
 praat-parselmouth==0.4.0
 proglog==0.1.9
