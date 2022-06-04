@@ -25,18 +25,18 @@ class Features:
         self.npdataset = []
         try:
             self.dataset = []
-            print('Extracting prosodic features')
+            print('  [X] Extracting prosodic features')
             self.dataset.extend(self.Prosodic.get_prosodic_features(file_path + self.audio_extension))
-            print('Done with extracting prosodic features')
-            print('Getting the transcript of the interview')
+            print('  [O] Done with extracting prosodic features')
+            print('  [X] Getting the transcript of the interview')
             self.transcript = self.Lexical.get_transcript(file_path + self.audio_extension, self.apikey, self.url)
-            print('Done with getting the transcript of the interview')
-            print('Extracting lexical features')
+            print('  [O] Done with getting the transcript of the interview')
+            print('  [X] Extracting lexical features')
             self.dataset.extend(self.Lexical.get_lexical(self.transcript, self.emotion_list, self.word_list, self.nlp))
-            print('Done with extracting lexical features')
-            print('Extracting facial features')
+            print('  [O] Done with extracting lexical features')
+            print('  [X] Extracting facial features')
             self.dataset.extend(self.Facial.get_facial(file_path + self.video_extension, self.detector, self.predictor))
-            print('Done with extracting facial features')
+            print('  [O] Done with extracting facial features')
         except Exception as e:
             print(e)
         self.npdataset.append(self.dataset)

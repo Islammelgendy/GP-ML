@@ -53,16 +53,17 @@ def publishToQueue(body):
     channel.basic_publish(exchange='',
                             routing_key=mq_publisher,
                             body=body)
+    print('[O] Finished the interview')
     channel.close()
 
-def predict(interviewPath):
+def predict(interviewPath, _id):
     interviewPath = interviewPath.split('.')[0]
     FileProcessing.split_audio(interviewPath)
     feature = features.get_features(interviewPath)
     normalized_features = scaler.transform(feature)
     predictions = model.predict(normalized_features)
     jsonPredictions = predictionResponse(predictions)
-    publishToQueue(json.dumps({"predictions": jsonPredictions}))
+    publishToQueue(json.dumps({"_id": _id, "predictions": jsonPredictions}))
 
 def consuemFromQueue():
     channel = connection.channel()
@@ -70,11 +71,13 @@ def consuemFromQueue():
     channel.queue_declare(queue=mq_consumer, durable=True)
 
     def callback(ch, method, properties, body):
+        print('[X] Predicting')
         body = json.loads(body.decode('utf-8').replace("'", '"'))
-        predict(body['path'])
+        predict(body['path'], body['_id'])
 
     channel.basic_consume(queue=mq_consumer, on_message_callback=callback, auto_ack=True)
 
+    print('[X] Wating for interviews')
     channel.start_consuming()
 
 consuemFromQueue()
